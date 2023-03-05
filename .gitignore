@@ -1,0 +1,26 @@
+# binaries
+lit
+luvi
+luvit
+
+# not necessary for staging
+deps/
+temp/
+discordia-ext.lua
+discordia.lua
+interaction.lua
+
+# sensitive info
+cookies.txt
+*.json
+*.log
+
+# images, gifs, videos and sounds that are chonky
+assets/sounds/*
+assets/images/omori
+assets/images/tsihoclock/gif/*
+assets/images/tsihoclock/image/*
+
+# except two samples
+!assets/images/tsihoclock/gif/TsihFastPat.gif
+!assets/images/tsihoclock/image/learn_lua.png
