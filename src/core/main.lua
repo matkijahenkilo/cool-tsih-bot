@@ -83,7 +83,6 @@ client:on("ready", function()
   emoticonsServer = client:getGuild(settings.emoticonsServerId);
 
   initializeCommands(handler, args[3]);
-  require("./timedFunctions")(clock, client, statusTable, handler);
 
   client:info("💙Ready nanora!💜");
 end)
@@ -100,6 +99,16 @@ end)
 
 client:on("messageCommand", function(interaction, command, message)
   handler[command.name:gsub("Send ", '')].executeMessageCommand(interaction, command, message);
+end)
+
+clock:on("min", function()
+  client:setActivity(statusTable[math.random(#statusTable)]);
+end)
+
+clock:on("hour", function(now)
+  if now.hour == 18 then
+    handler["tsihoclock"].executeWithTimer(client);
+  end
 end)
 
 client:run('Bot ' .. args[2])
