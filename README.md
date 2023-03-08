@@ -16,7 +16,7 @@ cool-tsih-bot supports slash and message commands, to load them pass a third arg
 
 ## Installation
 
-**Be aware that simply installing cool-tsih-bot may cause crashes during runtime because of the absence of the /assets folder files.**
+Be aware that simply installing cool-tsih-bot may cause crashes during runtime because of the absence of the /assets folder files.
 
 ### pre-requisites programs
 
@@ -28,43 +28,7 @@ Follow [Discordia](https://github.com/SinisterRectus/discordia)'s installation g
 
 Git clone [discordia-interactions](https://github.com/Bilal2453/discordia-interactions) and [discordia-slash](https://github.com/GitSparTV/discordia-slash) inside `deps` folder.
 
-Be aware that I modified discordia-slash's Client.lua file a bit: I've added the following methods into the file:
-
-```lua
-function Client:getGlobalApplicationCommands()
-	local data, err = self._api:getGlobalApplicationCommands(self:getApplicationInformation().id)
-
-	if data then
-		return Cache(data, ApplicationCommand, self)
-	else
-		return nil, err
-	end
-end
-
-function Client:createGlobalApplicationCommand(id, payload)
-	local data, err = self._api:createGlobalApplicationCommand(self:getApplicationInformation().id, id)
-
-	if data then
-		return ApplicationCommand(data, self)
-	else
-		return nil, err
-	end
-end
-
-function Client:deleteGlobalApplicationCommand(id)
-	local data, err = self._api:deleteGlobalApplicationCommand(self:getApplicationInformation().id, id)
-
-	if data then
-		return data
-	else
-		return nil, err
-	end
-end
-```
-
-Without them, certain Client methods won't work in main.lua.
-
-to run the bot: `luvit src/core/main.lua [token] [boolean for loading commands]`
+to run the bot: `luvit src/core/main.lua [token] [true or false or nil for loading slash commands]`
 
 ### gallery-dl configuration
 
