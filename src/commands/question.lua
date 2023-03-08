@@ -25,7 +25,7 @@ return {
         )
   end,
   executeSlashCommand = function(interaction, _, args)
-    interaction:reply(interaction.member.name .. " asked: " .. args.question .. "\n"
+    interaction:reply(interaction.user.name .. " asked: " .. args.question .. "\n"
     .. answer[math.random(#answer)]);
   end
 }

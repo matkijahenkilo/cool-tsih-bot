@@ -1,9 +1,9 @@
 local function sendMessage(interaction, args, client)
   local avatarLink;
   if not args then
-    avatarLink = interaction.member.user:getAvatarURL(1024);
+    avatarLink = interaction.user:getAvatarURL(1024);
   else
-    avatarLink = client:getUser(args.user.id):getAvatarURL(1024);
+    avatarLink = args.user:getAvatarURL(1024);
   end
 
   interaction:reply {
